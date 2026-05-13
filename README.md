@@ -7,3 +7,5 @@ Miembros del proyecto:
 Johaquin Fernandez
 
 Danilo Jesus Navarro
+
+Joaquin Cardenas
