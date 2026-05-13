@@ -6,6 +6,6 @@ Miembros del proyecto:
 
 Johaquin Fernandez
 
-Danilo Jesus Navarro
+n/Danilo Jesus Navarro
 
-Joaquin Cardenas
+n/Joaquin Cardenas
