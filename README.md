@@ -182,7 +182,7 @@ POST /api/v1/cervezas
 
 # Cómo Ejecutar el Proyecto
 
-## 1. Clonar repositorio
+## 1. Clonar repositorio en Visual Studio Code
 
 ```bash
 git clone https://github.com/JojitaGamerHD/HomeroDoh
@@ -190,31 +190,15 @@ git clone https://github.com/JojitaGamerHD/HomeroDoh
 
 ---
 
-## 2. Configurar MySQL
+## 2. Correr MySQL en Laragon (o XAMPP)
 
-Crear base de datos:
-
-```sql
-CREATE DATABASE homerodoh;
-```
+Abrir HeidiSQL y conectarse a la base de datos:
 
 ---
 
-## 3. Configurar application.properties
+## 3. Ejecutar proyecto
 
-```properties
-spring.datasource.url=jdbc:mysql://localhost:3306/homerodoh
-spring.datasource.username=root
-spring.datasource.password=
-```
-
----
-
-## 4. Ejecutar proyecto
-
-```bash
-mvn spring-boot:run
-```
+En homerodoh, buscar HomerodohApplication.java y run java.
 
 ---
 
