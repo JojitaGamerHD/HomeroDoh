@@ -1,10 +1,10 @@
 {
   "info": {
-    "_postman_id": "243f1a95-6c24-4ba2-9d01-c8761a45f456",
+    "_postman_id": "26cfee67-6902-416f-998c-7384d6f2bfa8",
     "name": "HomeroDoh",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
     "_exporter_id": "53873160",
-    "_collection_link": "https://go.postman.co/collection/53873160-243f1a95-6c24-4ba2-9d01-c8761a45f456?source=collection_link"
+    "_collection_link": "https://go.postman.co/collection/53873160-26cfee67-6902-416f-998c-7384d6f2bfa8?source=collection_link"
   },
   "item": [
     {
@@ -278,6 +278,14 @@
             "1"
           ]
         }
+      },
+      "response": []
+    },
+    {
+      "name": "Traer Frase Aleatoria",
+      "request": {
+        "method": "GET",
+        "header": []
       },
       "response": []
     }
