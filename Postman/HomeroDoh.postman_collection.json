@@ -1,14 +1,14 @@
 {
   "info": {
-    "_postman_id": "e678cc1f-f5a4-4723-9172-af5118c598c5",
+    "_postman_id": "243f1a95-6c24-4ba2-9d01-c8761a45f456",
     "name": "HomeroDoh",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
     "_exporter_id": "53873160",
-    "_collection_link": "https://go.postman.co/collection/53873160-e678cc1f-f5a4-4723-9172-af5118c598c5?source=collection_link"
+    "_collection_link": "https://go.postman.co/collection/53873160-243f1a95-6c24-4ba2-9d01-c8761a45f456?source=collection_link"
   },
   "item": [
     {
-      "name": "MARCA",
+      "name": "Ingresar Marca",
       "request": {
         "method": "POST",
         "header": [],
@@ -38,7 +38,7 @@
       "response": []
     },
     {
-      "name": "CERVEZA",
+      "name": "Ingresar Cerveza",
       "request": {
         "method": "POST",
         "header": [],
@@ -89,7 +89,28 @@
       "response": []
     },
     {
-      "name": "DELETE",
+      "name": "Listar Marcas",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/v1/marcas",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "v1",
+            "marcas"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Borrar Cerveza",
       "request": {
         "method": "DELETE",
         "header": [],
@@ -104,6 +125,28 @@
             "api",
             "v1",
             "cervezas",
+            "0"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Borrar Marca",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/v1/marcas/0",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "v1",
+            "marcas",
             "0"
           ]
         }
