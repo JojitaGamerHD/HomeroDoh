@@ -3,12 +3,14 @@ package com.example.homerodoh.model;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Positive;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
+@Table(name = "cervezas")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -18,17 +20,17 @@ public class Cerveza {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @NotBlank
+    @NotBlank(message = "El nombre es obligatorio")
     private String nombre;
 
-    @NotNull
+    @NotNull(message = "El precio es obligatorio")
+    @Positive(message = "El precio debe ser positivo")
     private Double precio;
 
-    @NotBlank
-    private String tipo; // Lager, IPA, etc
+    @NotBlank(message = "El tipo es obligatorio")
+    private String tipo;
 
     @ManyToOne
     @JoinColumn(name = "marca_id", nullable = false)
     private Marca marca;
 }
-

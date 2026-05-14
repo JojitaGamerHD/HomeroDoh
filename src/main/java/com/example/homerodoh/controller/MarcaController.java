@@ -2,8 +2,7 @@ package com.example.homerodoh.controller;
 
 import com.example.homerodoh.model.Marca;
 import com.example.homerodoh.service.MarcaService;
-
-import org.springframework.beans.factory.annotation.Autowired;
+import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -14,8 +13,11 @@ import java.util.List;
 @RequestMapping("/api/v1/marcas")
 public class MarcaController {
 
-    @Autowired
-    private MarcaService marcaService;
+    private final MarcaService marcaService;
+
+    public MarcaController(MarcaService marcaService) {
+        this.marcaService = marcaService;
+    }
 
     @GetMapping
     public ResponseEntity<List<Marca>> listar() {
@@ -24,23 +26,28 @@ public class MarcaController {
 
     @GetMapping("/{id}")
     public ResponseEntity<?> buscar(@PathVariable Integer id) {
-        Marca m = marcaService.getById(id);
 
-        if (m == null) {
+        Marca marca = marcaService.getById(id);
+
+        if (marca == null) {
             return ResponseEntity.notFound().build();
         }
 
-        return ResponseEntity.ok(m);
+        return ResponseEntity.ok(marca);
     }
 
     @PostMapping
-    public ResponseEntity<Marca> crear(@RequestBody Marca marca) {
+    public ResponseEntity<Marca> crear(@Valid @RequestBody Marca marca) {
+
         return ResponseEntity.status(HttpStatus.CREATED)
                 .body(marcaService.save(marca));
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<?> actualizar(@PathVariable Integer id, @RequestBody Marca marca) {
+    public ResponseEntity<?> actualizar(
+            @PathVariable Integer id,
+            @Valid @RequestBody Marca marca) {
+
         marca.setId(id);
 
         Marca actualizada = marcaService.update(marca);
@@ -54,7 +61,13 @@ public class MarcaController {
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> eliminar(@PathVariable Integer id) {
+
+        if (marcaService.getById(id) == null) {
+            return ResponseEntity.notFound().build();
+        }
+
         marcaService.delete(id);
+
         return ResponseEntity.noContent().build();
     }
 }
