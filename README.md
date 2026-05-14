@@ -86,9 +86,7 @@ Tablas principales:
 ## API Externa Quotes
 
 | Método | Endpoint                   | Descripción                                      |
-
 | ------ | -------------------------- | ------------------------------------------------ |
-
 | GET    | /api/v1/quotes/random      | Obtener frase aleatoria desde API externa        |
 
 ## Cervezas
