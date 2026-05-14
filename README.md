@@ -51,7 +51,7 @@ src/main/java/com/example/homerodoh
 
 ---
 
-# ⚙️ Tecnologías Utilizadas
+# Tecnologías Utilizadas
 
 | Tecnología      | Descripción                    |
 | --------------- | ------------------------------ |
@@ -185,7 +185,7 @@ POST /api/v1/cervezas
 ## 1. Clonar repositorio
 
 ```bash
-git clone URL_DEL_REPOSITORIO
+git clone https://github.com/JojitaGamerHD/HomeroDoh
 ```
 
 ---
