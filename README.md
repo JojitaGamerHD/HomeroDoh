@@ -3,6 +3,7 @@
 
 Proyecto desarrollado con Spring Boot y MySQL para la gestión de cervezas y marcas mediante una API REST.
 
+El proyecto incluye integración con una API externa utilizando WebClient de Spring Boot para consumir frases aleatorias desde un servicio REST público.
 ---
 
 # Integrantes
@@ -81,6 +82,14 @@ Tablas principales:
 ---
 
 # Endpoints Disponibles
+
+## API Externa Quotes
+
+| Método | Endpoint                   | Descripción                                      |
+
+| ------ | -------------------------- | ------------------------------------------------ |
+
+| GET    | /api/v1/quotes/random      | Obtener frase aleatoria desde API externa        |
 
 ## Cervezas
 
