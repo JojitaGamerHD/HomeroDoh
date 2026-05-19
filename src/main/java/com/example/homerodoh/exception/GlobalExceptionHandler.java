@@ -7,30 +7,33 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 import java.time.LocalDateTime;
-import java.util.HashMap;
-import java.util.Map;
 
 @RestControllerAdvice
 public class GlobalExceptionHandler {
 
     @ExceptionHandler(MethodArgumentNotValidException.class)
-    public ResponseEntity<Map<String, String>> handleValidation(
+    public ResponseEntity<ApiError> handleValidation(
             MethodArgumentNotValidException ex) {
 
-        Map<String, String> errores = new HashMap<>();
+        String mensaje = ex.getBindingResult()
+                .getFieldError()
+                .getDefaultMessage();
 
-        ex.getBindingResult().getFieldErrors().forEach(error ->
-                errores.put(error.getField(), error.getDefaultMessage())
+        ApiError error = new ApiError(
+                HttpStatus.BAD_REQUEST.value(),
+                "Bad Request",
+                mensaje,
+                LocalDateTime.now()
         );
 
-        return ResponseEntity.badRequest().body(errores);
+        return ResponseEntity.badRequest().body(error);
     }
 
     @ExceptionHandler(Exception.class)
     public ResponseEntity<ApiError> handleGeneral(Exception ex) {
 
         ApiError error = new ApiError(
-                500,
+                HttpStatus.INTERNAL_SERVER_ERROR.value(),
                 "Internal Server Error",
                 ex.getMessage(),
                 LocalDateTime.now()
